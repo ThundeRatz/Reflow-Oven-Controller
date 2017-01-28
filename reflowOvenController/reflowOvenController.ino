@@ -260,7 +260,7 @@ void setup()
   pinMode(ssrPin, OUTPUT);
 
   // Buzzer pin initialization to ensure annoying buzzer is off
-  digitalWrite(buzzerPin, LOW);
+  analogWrite(buzzerPin, 0);
   pinMode(buzzerPin, OUTPUT);
 
   // LED pins initialization and turn on upon start-up (active low)
@@ -276,14 +276,14 @@ void setup()
   #endif  
 
   // Start-up splash
-  digitalWrite(buzzerPin, HIGH);
+  analogWrite(buzzerPin, 250);
   lcd.begin(8, 2);
   lcd.createChar(0, degree);
   lcd.clear();
   lcd.print("Reflow");
   lcd.setCursor(0, 1);
   lcd.print("Oven 1.2");
-  digitalWrite(buzzerPin, LOW);
+  analogWrite(buzzerPin, 0);
   delay(2500);
   lcd.clear();
 
@@ -481,7 +481,7 @@ void loop()
       #ifdef  USE_MAX6675
         digitalWrite(ledGreenPin, LOW);
       #endif
-      digitalWrite(buzzerPin, HIGH);
+      analogWrite(buzzerPin, 250);
       // Turn off reflow process
       reflowStatus = REFLOW_STATUS_OFF;                
       // Proceed to reflow Completion state
@@ -493,7 +493,7 @@ void loop()
     if (millis() > buzzerPeriod)
     {
       // Turn off buzzer and green LED
-      digitalWrite(buzzerPin, LOW);
+      analogWrite(buzzerPin, 0);
       #ifdef  USE_MAX6675
         digitalWrite(ledGreenPin, HIGH);
       #endif
