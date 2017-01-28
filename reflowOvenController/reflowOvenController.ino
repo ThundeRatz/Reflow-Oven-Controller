@@ -184,9 +184,9 @@ unsigned char degree[8]  = {
 // ***** PIN ASSIGNMENT *****
 #ifdef  USE_MAX31855
   int ssrPin = 4;
-  int thermocoupleSOPin = A3;
+  int thermocoupleSOPin = A1;
   int thermocoupleCSPin = A2;
-  int thermocoupleCLKPin = A1;
+  int thermocoupleCLKPin = A3;
   int lcdRsPin = 7;
   int lcdEPin = 8;
   int lcdD4Pin = 9;
